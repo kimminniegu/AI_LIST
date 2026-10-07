@@ -1,18 +1,18 @@
 # AI 워크플로우 도구 모음
 
-팀원들이 직접 써 본 AI 서비스 18개를 분야별로 정리한 웹페이지입니다.
+팀원들이 직접 써 본 AI 서비스 17개를 분야별로 정리한 웹페이지입니다.
 원본 데이터는 `AI_워크플로우.xlsx`이며, 이 내용을 HTML 페이지 하나로 만들어 한눈에 비교할 수 있게 합니다.
 
 ## 수록 도구
 
-| 분야 | 도구 | 써본 사람 |
-| --- | --- | --- |
-| 워크플로우 자동화 | [n8n](https://n8n.io/), [Dify](https://dify.ai/ko) | 김 민 |
-| 웹/UI/UX 디자인 | [Figma](https://www.figma.com/ko-kr/pricing/), [V0](https://v0.app/), [Google Stitch](https://stitch.withgoogle.com/), [Claude Design](https://claude.com/ko/product/design) | 홍은주 |
-| 바이브 코딩 | [Lovable](https://lovable.dev), [Cursor](https://cursor.com), [Bolt.new](https://bolt.new) | 유정현 |
-| LLM / 글쓰기 및 전반적인 작업 | [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), [Gemini](https://gemini.google.com) | 유정현 |
-| AI 아바타 및 영상 제작 | [Vidnoz AI](https://www.vidnoz.com/), [DeeVid AI](https://deevid.ai/ko/agent), [HeyGen](https://app.heygen.com/onboarding) | 맹민지 |
-| 시각화 & 프레젠테이션 | Claude, Gamma | 양효선 |
+| 분야 | 도구 |
+| --- | --- |
+| 워크플로우 자동화 | [n8n](https://n8n.io/), [Dify](https://dify.ai/ko) |
+| 웹/UI/UX 디자인 | [Figma](https://www.figma.com/ko-kr/pricing/), [V0](https://v0.app/), [Google Stitch](https://stitch.withgoogle.com/), [Claude Design](https://claude.com/ko/product/design) |
+| 바이브 코딩 | [Lovable](https://lovable.dev), [Cursor](https://cursor.com), [Bolt.new](https://bolt.new) |
+| LLM / 글쓰기 및 전반적인 작업 | [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), [Gemini](https://gemini.google.com) |
+| AI 아바타 및 영상 제작 | [Vidnoz AI](https://www.vidnoz.com/), [DeeVid AI](https://deevid.ai/ko/agent), [HeyGen](https://app.heygen.com/onboarding) |
+| 시각화 & 프레젠테이션 | Claude, Gamma |
 
 ## 도구별 항목
 
@@ -28,15 +28,47 @@
 | 장점 | 써 보고 느낀 강점 |
 | 아쉬운점 | 한계와 불편한 점 |
 | 직접써본소감 | 체험 후기 |
-| 써본사람 | 작성자 |
+| 써본사람 | 작성자 (페이지에는 표시하지 않음) |
 | URL | 공식 사이트 또는 체험 결과 링크 |
 
-## 페이지 구성 (계획)
+## 페이지 구성
 
-- 상단: 제목, 소개 문구, 분야 필터 탭
-- 본문: 분야별로 묶은 도구 카드. 카드에는 이름, 한줄소개, 요금이 보이고, 펼치면 사용방법·장점·아쉬운점·소감이 나옴
-- 각 카드에 공식 사이트 링크와 작성자 표시
-- 모바일에서도 볼 수 있는 반응형 레이아웃
+탭으로 나누지 않고 한 페이지에 모두 이어서 보여줍니다.
+
+```
+┌──────────────┬──────────────────────────────────────┐
+│ 컨트롤 타워   │  컨트롤 타워 (요약 + 분야 카드 6개)    │
+│──────────────│──────────────────────────────────────│
+│ 워크플로우    │  01 워크플로우 자동화                  │
+│ 웹/UI/UX     │   [아이콘] n8n  한줄소개           ∨  │
+│ 바이브 코딩   │   [아이콘] Dify 한줄소개           ∧  │
+│ LLM / 글쓰기  │     장점 · 아쉬운 점 · 소감 · 사용방법 · 요금
+│ 아바타·영상   │  02 웹/UI/UX 디자인                   │
+│ 시각화·발표   │   ...                                │
+└──────────────┴──────────────────────────────────────┘
+  좌측 사이드바   본문 (아래로 스크롤)
+```
+
+### 1. 좌측 사이드바
+- 맨 위에 **컨트롤 타워**, 그 아래 6개 분야 버튼
+- 버튼을 누르면 해당 칸으로 부드럽게 스크롤
+- 스크롤하면 지금 보고 있는 분야가 사이드바에 강조 표시됨
+
+### 2. 컨트롤 타워 (맨 위)
+- AI 수와 분야 수 요약, 분야 카드 6개
+- 카드를 누르면 해당 분야 칸으로, 카드 안 아이콘을 누르면 그 AI를 펼친 채로 이동
+
+### 3. 분야 칸
+- 분야마다 AI가 한 줄씩 나열됨 (아이콘, 이름, 한줄소개)
+- 줄을 누르면 그 자리에서 세부 내용이 펼쳐지고, 다시 누르면 접힘. 여러 개를 동시에 펼칠 수 있음
+- 세부 내용: 장점 / 아쉬운 점 → 직접 써 본 소감 → 사용 방법 / 사용 요금 → 공식 사이트(또는 체험 결과) 버튼
+
+### 링크 공유
+- `index.html#/vibe` 처럼 열면 해당 분야 칸으로, `index.html#/vibe/cursor` 처럼 열면 Cursor를 펼친 채로 이동
+
+### 모바일
+- 사이드바는 상단 메뉴 버튼으로 접고 펼침
+- 세부 내용은 한 칸씩 세로로 쌓임
 
 ## 파일 구조
 
@@ -44,7 +76,30 @@
 AI_LIST/
 ├── README.md
 ├── AI_워크플로우.xlsx      # 원본 데이터
-├── index.html              # 만들 페이지
+├── index.html              # 페이지 뼈대 (사이드바, 본문 영역)
+├── css/
+│   └── style.css           # 디자인 (색상, 레이아웃, 다크 모드, 모바일)
+├── js/
+│   ├── data.js             # 엑셀에서 자동 생성한 도구 데이터 — 직접 고치지 않음
+│   └── main.js             # 화면 그리기, 칸 이동·펼치기, 모바일 메뉴
+├── scripts/
+│   └── build_data.py       # 엑셀 → js/data.js 변환 스크립트
+├── icons/                  # AI 서비스 아이콘 (각 공식 사이트 파비콘)
+│   ├── n8n.png             # 워크플로우 자동화
+│   ├── dify.svg
+│   ├── figma.png           # 웹/UI/UX 디자인
+│   ├── v0.png
+│   ├── google-stitch.jpg
+│   ├── claude.png          # Claude Design, Claude 공용
+│   ├── lovable.jpg         # 바이브 코딩
+│   ├── cursor.png
+│   ├── bolt.png
+│   ├── chatgpt.png         # LLM / 글쓰기
+│   ├── gemini.png
+│   ├── vidnoz.png          # AI 아바타 및 영상 제작
+│   ├── deevid.svg
+│   ├── heygen.png
+│   └── gamma.jpg           # 시각화 & 프레젠테이션
 └── font/                   # 나눔스퀘어 네오
     ├── nanum_square_neo_rg.otf   # Regular — 본문
     ├── nanum_square_neo_bd.otf   # Bold — 소제목
@@ -52,15 +107,32 @@ AI_LIST/
 ```
 
 폰트는 `@font-face`로 `font/` 폴더의 파일을 불러옵니다.
+아이콘은 각 서비스 공식 사이트의 파비콘을 받아 둔 것이며, 로고의 저작권은 각 서비스에 있습니다.
 
 ## 보는 방법
 
 `index.html`을 브라우저에서 열면 됩니다. 별도 설치나 서버가 필요 없습니다.
+시스템이 다크 모드면 페이지도 어두운 색으로 표시됩니다.
 
-## 데이터 정리 시 확인할 점
+## 내용 수정하기
 
-- 15행 DeeVid AI의 작성자가 `맹맨지`로 되어 있음 → `맹민지` 오타로 보임
-- 15행 한줄소개의 `드을` → `등을` 오타로 보임
-- HeyGen 요금(33,000 / 60,967)에 통화 단위가 없음 → 원화 여부 확인 필요
-- 요금 표기 방식이 도구마다 다름 (€, $, 원, 확인일 유무) → 페이지에서는 형식을 통일
-- 시각화 & 프레젠테이션의 URL은 공식 사이트가 아니라 체험 결과 공유 링크임
+1. `AI_워크플로우.xlsx`를 고치고 저장합니다.
+2. 프로젝트 폴더에서 아래 명령을 실행해 `js/data.js`를 다시 만듭니다.
+   ```
+   python scripts/build_data.py
+   ```
+3. 브라우저를 새로고침합니다.
+
+새 AI를 추가했다면 `icons/`에 아이콘을 넣고, `scripts/build_data.py`의 `ICONS`에 이름과 파일명을 적어 주세요.
+새 분야를 추가했다면 같은 파일의 `CATEGORIES`에 분야 id, 이름, 소개 문구를 적어 주세요.
+
+## 변환할 때 자동으로 처리되는 것
+
+- 엑셀 15행(DeeVid AI) 한줄소개의 오타 `드을` → `등을` (엑셀 원문은 그대로)
+- 엑셀에서 `\`로 저장된 원화 기호 → `₩`
+- 써본 사람(작성자) 열은 데이터에 넣지 않음
+- 줄 앞의 `` `- ``, `•`, `-` 기호 제거 후 목록으로 표시, `1.` `1)` 형태 단계는 번호 목록으로 표시
+- 요금 칸의 `확인일`과 출처 URL은 요금 목록 아래에 작게 표시
+- `Lovable (러버블)`처럼 괄호 속 한글 이름은 영문 이름 옆에 작게 표시
+- 시각화 & 프레젠테이션의 URL은 체험 결과 공유 링크라서 버튼 이름을 `체험 결과 보기`로 표시
+- Claude는 두 분야(LLM, 시각화 & 프레젠테이션)에 같은 아이콘으로 나오고, 내용은 분야별로 따로 표시

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 워크플로우</title>
+  <meta name="description" content="팀원들이 직접 써 본 AI 서비스를 분야별로 정리한 페이지">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-btn" id="menu-btn" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="topbar-title" href="#/">AI 워크플로우</a>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true">AI</span>
+      <span class="brand-text">AI 워크플로우</span>
+    </a>
+    <nav aria-label="분야">
+      <a class="nav-link nav-tower" href="#/" data-route="tower">
+        <span class="nav-tower-icon" aria-hidden="true"></span>
+        컨트롤 타워
+      </a>
+      <p class="nav-label">분야</p>
+      <ul class="nav-list" id="nav-cats"></ul>
+    </nav>
+    <p class="sidebar-foot">출처: AI_워크플로우.xlsx</p>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main class="main" id="main"></main>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
