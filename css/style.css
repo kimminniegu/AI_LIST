@@ -354,6 +354,23 @@ img { display: block; }
 .tool-name { font-size: 17px; font-weight: 800; }
 .tool-name .ko { font-size: 13px; font-weight: 400; color: var(--text-3); margin-left: 6px; }
 .one-liner { font-size: 14px; color: var(--text-2); }
+
+/* 요금 구분 배지 */
+.plan {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+.plan-free { background: var(--pro-soft); color: var(--pro); }
+.plan-freemium { background: var(--accent-soft); color: var(--accent); }
+.plan-trial { background: var(--con-soft); color: var(--con); }
+.plan-paid { background: var(--surface-2); color: var(--text-2); box-shadow: inset 0 0 0 1px var(--border); }
 .chevron {
   flex: none;
   width: 10px;

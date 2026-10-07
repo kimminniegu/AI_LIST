@@ -35,6 +35,35 @@ CATS = {
 ICONS = {'n8n':'n8n.png','Dify':'dify.svg','Figma':'figma.png','V0':'v0.png','Google Stitch':'google-stitch.jpg',
   'Claude Design':'claude.png','Lovable':'lovable.jpg','Cursor':'cursor.png','Bolt.new':'bolt.png','ChatGPT':'chatgpt.png',
   'Claude':'claude.png','Gemini':'gemini.png','Vidnoz AI':'vidnoz.png','DeeVid AI':'deevid.svg','Hey Gen':'heygen.png','Gamma':'gamma.jpg'}
+# 요금 구분: 엑셀의 사용요금·아쉬운점 내용을 보고 정한 값입니다. (분야id/이름)
+#   free     = 무료       freemium = 무료 플랜 있음
+#   trial    = 무료 체험  paid     = 유료
+PLANS = {
+  'workflow/n8n': 'trial',           # 클라우드 14일 무료 체험 후 유료 (로컬 설치는 무료)
+  'workflow/Dify': 'freemium',       # 무료 200 메시지 크레딧
+  'design/Figma': 'freemium',        # 무료 플랜 (파일 수·크레딧 제한)
+  'design/V0': 'freemium',           # 무료 크레딧 월 $5
+  'design/Google Stitch': 'free',    # 완전 무료
+  'design/Claude Design': 'paid',    # 무료로는 못 씀
+  'vibe/Lovable': 'freemium',
+  'vibe/Cursor': 'freemium',
+  'vibe/Bolt.new': 'freemium',
+  'llm/ChatGPT': 'freemium',
+  'llm/Claude': 'freemium',
+  'llm/Gemini': 'freemium',
+  'video/Vidnoz AI': 'freemium',     # 무료 30 크레딧
+  'video/DeeVid AI': 'paid',         # 공식 요금표에 무료 플랜 없음 (가입 시 20 크레딧만 지급)
+  'video/HeyGen': 'freemium',        # 무료 월 3개 영상
+  'slides/Claude': 'freemium',       # LLM 분야의 Claude와 같게
+  'slides/Gamma': 'freemium',        # 가입 시 400 크레딧 1회 지급
+}
+
+# 엑셀 사용요금 칸에 빠진 무료 플랜을 맨 앞에 덧붙입니다. (분야id/이름)
+EXTRA_PRICING = {
+  'slides/Claude': ['Free: $0/월'],
+  'slides/Gamma': ['Free: $0 (가입 시 400 크레딧 1회 지급, 매월 충전 없음)'],
+}
+
 # 엑셀 원문의 오타와, 엑셀에서 \로 저장된 원화 기호를 바로잡습니다.
 FIXES = [('드을', '등을'), (chr(92), chr(0x20A9))]
 
@@ -52,8 +81,8 @@ def steps(s):
     ls = lines(s)
     numbered = sum(bool(re.match(r'^\d+[.)]\s*', l)) for l in ls)
     return {'ordered': numbered >= 2, 'items': [re.sub(r'^\d+[.)]\s*', '', l) for l in ls]}
-def pricing(s):
-    p = {'items': [], 'checked': None, 'sources': []}
+def pricing(s, extra=()):
+    p = {'items': list(extra), 'checked': None, 'sources': []}
     for l in lines(s):
         if l.startswith('http'): p['sources'].append(l)
         elif l.startswith('확인일'): p['checked'] = l.split(':', 1)[1].strip()
@@ -73,9 +102,10 @@ for r in rows:
     cat['tools'].append({
         'id': slug(display), 'name': display, 'ko': ko,
         'icon': 'icons/' + ICONS[name],
+        'plan': PLANS[f'{cid}/{display}'],
         'oneLiner': ' '.join(lines(r.get('C'))),
         'howTo': steps(r.get('D')),
-        'pricing': pricing(r.get('E')),
+        'pricing': pricing(r.get('E'), EXTRA_PRICING.get(f'{cid}/{display}', [])),
         'pros': lines(r.get('F')),
         'cons': lines(r.get('G')),
         'review': lines(r.get('H')),

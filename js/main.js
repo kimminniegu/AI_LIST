@@ -20,6 +20,8 @@ const list = (items, ordered = false) => {
 const iconTile = (tool, size = '') => `
   <span class="icon-tile ${size}"><img src="${esc(tool.icon)}" alt="" loading="lazy"></span>`;
 const toolDomId = (cat, tool) => `t-${cat.id}-${tool.id}`;
+const PLAN_LABELS = { free: '무료', freemium: '무료 플랜 있음', trial: '무료 체험', paid: '유료' };
+const planBadge = (tool) => `<span class="plan plan-${tool.plan}">${PLAN_LABELS[tool.plan]}</span>`;
 
 const allTools = CATEGORIES.flatMap((c) => c.tools);
 
@@ -105,7 +107,7 @@ function toolHTML(cat, t) {
       <summary class="tool-sum">
         ${iconTile(t, 'lg')}
         <span class="tool-sum-text">
-          <span class="tool-name">${esc(t.name)}${t.ko ? `<span class="ko">${esc(t.ko)}</span>` : ''}</span>
+          <span class="tool-name">${esc(t.name)}${t.ko ? `<span class="ko">${esc(t.ko)}</span>` : ''}${planBadge(t)}</span>
           <span class="one-liner">${esc(t.oneLiner)}</span>
         </span>
         <span class="chevron" aria-hidden="true"></span>

@@ -10,6 +10,7 @@ const CATEGORIES = [
         "name": "n8n",
         "ko": null,
         "icon": "icons/n8n.png",
+        "plan": "trial",
         "oneLiner": "코딩 없이 직관적인 노드 연결만으로 업무를 자동화할 수 있는 도구",
         "howTo": {
           "ordered": true,
@@ -52,6 +53,7 @@ const CATEGORIES = [
         "name": "Dify",
         "ko": null,
         "icon": "icons/dify.svg",
+        "plan": "freemium",
         "oneLiner": "문서 기반 RAG와 LLM 워크플로우를 노드로 조립해 웹/API로 즉시 배포하는 노코드 AI 플랫폼",
         "howTo": {
           "ordered": false,
@@ -97,6 +99,7 @@ const CATEGORIES = [
         "name": "Figma",
         "ko": null,
         "icon": "icons/figma.png",
+        "plan": "freemium",
         "oneLiner": "바이브코딩 전에 디자인 잡기에 좋다.",
         "howTo": {
           "ordered": false,
@@ -148,6 +151,7 @@ const CATEGORIES = [
         "name": "V0",
         "ko": null,
         "icon": "icons/v0.png",
+        "plan": "freemium",
         "oneLiner": "홈페이지 제작 부터 배포까지 한번에 가능하다.",
         "howTo": {
           "ordered": false,
@@ -190,6 +194,7 @@ const CATEGORIES = [
         "name": "Google Stitch",
         "ko": null,
         "icon": "icons/google-stitch.jpg",
+        "plan": "free",
         "oneLiner": "무료로 초보자들도 사용할 수 있는 웹디자인툴.",
         "howTo": {
           "ordered": false,
@@ -231,6 +236,7 @@ const CATEGORIES = [
         "name": "Claude Design",
         "ko": null,
         "icon": "icons/claude.png",
+        "plan": "paid",
         "oneLiner": "클로드가 클로드했다.",
         "howTo": {
           "ordered": false,
@@ -277,6 +283,7 @@ const CATEGORIES = [
         "name": "Lovable",
         "ko": "러버블",
         "icon": "icons/lovable.jpg",
+        "plan": "freemium",
         "oneLiner": "원하는 기능을 자연어로 설명하면 웹사이트와 웹앱을 만들어주는 AI 개발 도구",
         "howTo": {
           "ordered": false,
@@ -318,6 +325,7 @@ const CATEGORIES = [
         "name": "Cursor",
         "ko": "커서",
         "icon": "icons/cursor.png",
+        "plan": "freemium",
         "oneLiner": "자연어 요청으로 코드와 파일을 생성하고 수정할 수 있는 AI 코드 편집기",
         "howTo": {
           "ordered": false,
@@ -364,6 +372,7 @@ const CATEGORIES = [
         "name": "Bolt.new",
         "ko": "볼트",
         "icon": "icons/bolt.png",
+        "plan": "freemium",
         "oneLiner": "자연어 대화로 웹사이트와 웹앱을 생성·수정하고 공개할 수 있는 AI 개발 도구",
         "howTo": {
           "ordered": false,
@@ -413,6 +422,7 @@ const CATEGORIES = [
         "name": "ChatGPT",
         "ko": null,
         "icon": "icons/chatgpt.png",
+        "plan": "freemium",
         "oneLiner": "자연어 대화로 글 작성·수정·요약과 다양한 작업을 돕는 AI 서비스",
         "howTo": {
           "ordered": false,
@@ -460,6 +470,7 @@ const CATEGORIES = [
         "name": "Claude",
         "ko": "클로드",
         "icon": "icons/claude.png",
+        "plan": "freemium",
         "oneLiner": "대화로 글 작성·편집과 문서 이해·분석을 돕는 AI 서비스",
         "howTo": {
           "ordered": false,
@@ -504,6 +515,7 @@ const CATEGORIES = [
         "name": "Gemini",
         "ko": "제미나이",
         "icon": "icons/gemini.png",
+        "plan": "freemium",
         "oneLiner": "글 작성·수정과 정보 정리 및 Google 서비스 연계를 지원하는 AI 서비스",
         "howTo": {
           "ordered": false,
@@ -556,6 +568,7 @@ const CATEGORIES = [
         "name": "Vidnoz AI",
         "ko": null,
         "icon": "icons/vidnoz.png",
+        "plan": "freemium",
         "oneLiner": "AI 아바타 영상 제작 가능, 사진이나 일러스트에 대사를 입력해 입 모양을 맞춘 영상 제작 가능, 나만의 아바타 생성 가능(본인 사진이나 영상 기반)",
         "howTo": {
           "ordered": true,
@@ -600,6 +613,7 @@ const CATEGORIES = [
         "name": "DeeVid AI",
         "ko": null,
         "icon": "icons/deevid.svg",
+        "plan": "paid",
         "oneLiner": "텍스트, 사진, 영상 등을 입력해 AI 영상, 이미지, 아바타, 음성, 음성, 음악을 만들고 편집할 수 있는 올인원 콘텐츠 제작 사이트",
         "howTo": {
           "ordered": false,
@@ -639,6 +653,7 @@ const CATEGORIES = [
         "name": "HeyGen",
         "ko": null,
         "icon": "icons/heygen.png",
+        "plan": "freemium",
         "oneLiner": "HeyGen은 대본이나 사진을 바탕으로 AI 아바타가 말하는 영상을 만들고, 기존 영상의 언어와 입 모양을 바꿔 여러 언어로 제작할 수 있는 온라인 AI 영상 플랫폼",
         "howTo": {
           "ordered": true,
@@ -690,6 +705,7 @@ const CATEGORIES = [
         "name": "Claude",
         "ko": null,
         "icon": "icons/claude.png",
+        "plan": "freemium",
         "oneLiner": "학술·연구 자료를 읽고 핵심 논리를 구조화한 뒤, 차트·시각화가 포함된 PowerPoint 자료까지 생성할 수 있는 범용 AI",
         "howTo": {
           "ordered": true,
@@ -702,6 +718,7 @@ const CATEGORIES = [
         },
         "pricing": {
           "items": [
+            "Free: $0/월",
             "월 $20"
           ],
           "checked": null,
@@ -729,6 +746,7 @@ const CATEGORIES = [
         "name": "Gamma",
         "ko": null,
         "icon": "icons/gamma.jpg",
+        "plan": "freemium",
         "oneLiner": "주제나 프롬프트만으로 발표 흐름, 카드형 슬라이드, 이미지·레이아웃을 한 번에 구성하는 AI 프레젠테이션 전문 도구",
         "howTo": {
           "ordered": true,
@@ -742,6 +760,7 @@ const CATEGORIES = [
         },
         "pricing": {
           "items": [
+            "Free: $0 (가입 시 400 크레딧 1회 지급, 매월 충전 없음)",
             "월 $25"
           ],
           "checked": null,
