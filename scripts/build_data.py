@@ -111,8 +111,17 @@ for r in rows:
         'review': lines(r.get('H')),
         'url': url, 'urlLabel': '공식 사이트' if official else '체험 결과 보기',
     })
-data = list(cats.values())
+# 비슷한 분야 2개씩 한 화면에 묶습니다. 분야는 이 순서대로 표시됩니다.
+GROUPS = [
+  {'id': 'build', 'name': '디자인 & 개발', 'desc': '화면을 디자인하고, 실제로 동작하는 웹으로 만드는 AI', 'cats': ['design', 'vibe']},
+  {'id': 'work', 'name': '업무 & 글쓰기', 'desc': '글을 쓰고, 반복 업무를 자동으로 처리하는 AI', 'cats': ['workflow', 'llm']},
+  {'id': 'media', 'name': '콘텐츠 & 발표', 'desc': '영상과 발표 자료로 결과를 전달하는 AI', 'cats': ['video', 'slides']},
+]
+grouped = [c for g in GROUPS for c in g['cats']]
+assert sorted(grouped) == sorted(cats), '모든 분야가 GROUPS에 한 번씩 들어가야 합니다'
+data = [cats[cid] for cid in grouped]
 js = ('// AI_워크플로우.xlsx에서 자동 생성한 데이터입니다. 엑셀을 고친 뒤 다시 생성하세요.\n'
+      'const GROUPS = ' + json.dumps(GROUPS, ensure_ascii=False, indent=2) + ';\n\n'
       'const CATEGORIES = ' + json.dumps(data, ensure_ascii=False, indent=2) + ';\n')
 open(OUT, 'w', encoding='utf-8').write(js)
 print(len(data), 'categories', sum(len(c['tools']) for c in data), 'tools')
